@@ -1,0 +1,20 @@
+Hotel Booking System (Spring Boot) Scrum 12/09/2021
+
+FSD01 TEAM 5
+Banshchikov, Dmitri
+Lin, Hong
+
+
+1.	What have you done/not done?
+2.	What are you planning on doing from this scrum to the next?
+3.	Where do I need assistance? What do I need to figure out?
+
+Banshchikov, Dmitri
+1.  Database, Entities, Git, Trello
+2.  RoomReservationController
+3.  Research work
+
+Lin, Hong
+1. N/A
+2. Review tutorials
+3. N/A
