@@ -18,3 +18,15 @@ Lin, Hong
 1. Create basic User.java class,still need to continue add fuctions.
 2.UserController
 3. Reserach work, reivew video and files.
+
+2021-12-10
+Banshchikov, Dmitri
+1. 
+2.  
+3. 
+
+
+Lin, Hong
+1.Doing html of index page . complet to backend of user.add card on trello
+2.Try to complet to backend of user.
+3.Discuss about code conflic by using diffrent way  for backend .
