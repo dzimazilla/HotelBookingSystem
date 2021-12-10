@@ -15,6 +15,6 @@ Banshchikov, Dmitri
 3.  Research work
 
 Lin, Hong
-1. Create basic User class
-2. Review tutorials
-3. Reserach work
+1. Create basic User.java class,still need to continue add fuctions.
+2.UserController
+3. Reserach work, reivew video and files.
