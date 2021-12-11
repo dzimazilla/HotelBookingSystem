@@ -10,8 +10,8 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
-@Entity(name = "room")
-@Table()
+@Entity
+@Table(name = "room")
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,5 +29,8 @@ public class Room {
 
     @NotNull
     @Column(name="BED_INFO")
-    private String bedInfo;
+    private Integer bedInfo;
+
+    @Column(name="TYPE")
+    private String type;
 }

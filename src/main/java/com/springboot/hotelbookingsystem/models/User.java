@@ -6,12 +6,12 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity(name = "guest")
-@Table()
-public class Guest {
+@Entity
+@Table(name = "user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "GUEST_ID", nullable = false)
+    @Column(name = "USER_ID", nullable = false)
     private Long guestId;
 
     @Column(name="FIRST_NAME")
@@ -34,4 +34,10 @@ public class Guest {
 
     @Column(name="PHONE_NUMBER")
     private String phone;
+
+    @Column(name="PASSWORD")
+    private String password;
+
+    @Column(name="ROLE")
+    private boolean role;
 }

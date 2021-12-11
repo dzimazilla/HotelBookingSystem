@@ -1,10 +1,10 @@
 package com.springboot.hotelbookingsystem.services;
 
 import com.springboot.hotelbookingsystem.domain.RoomReservation;
-import com.springboot.hotelbookingsystem.models.Guest;
+import com.springboot.hotelbookingsystem.models.User;
 import com.springboot.hotelbookingsystem.models.Reservation;
 import com.springboot.hotelbookingsystem.models.Room;
-import com.springboot.hotelbookingsystem.repositories.GuestRepository;
+import com.springboot.hotelbookingsystem.repositories.UserRepository;
 import com.springboot.hotelbookingsystem.repositories.ReservationRepository;
 import com.springboot.hotelbookingsystem.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,13 @@ import java.util.*;
 @Service
 public class ReservationService {
     private final RoomRepository roomRepository;
-    private final GuestRepository guestRepository;
+    private final UserRepository userRepository;
     private final ReservationRepository reservationRepository;
 
     @Autowired
-    public ReservationService(RoomRepository roomRepository, GuestRepository guestRepository, ReservationRepository reservationRepository) {
+    public ReservationService(RoomRepository roomRepository, UserRepository userRepository, ReservationRepository reservationRepository) {
         this.roomRepository = roomRepository;
-        this.guestRepository = guestRepository;
+        this.userRepository = userRepository;
         this.reservationRepository = reservationRepository;
     }
 
@@ -39,16 +39,17 @@ public class ReservationService {
         reservations.forEach(reservation -> {
             RoomReservation roomReservation = roomReservationMap.get(reservation.getRoomId());
             roomReservation.setDate(date);
-            Guest guest = this.guestRepository.findById(reservation.getGuestId()).get();
-            roomReservation.setFirstName(guest.getFirstName());
-            roomReservation.setLastName(guest.getLastName());
-            roomReservation.setGuestId(guest.getGuestId());
+            User user = this.userRepository.findById(reservation.getUserId()).get();
+            roomReservation.setFirstName(user.getFirstName());
+            roomReservation.setLastName(user.getLastName());
+            roomReservation.setUserId(user.getGuestId());
         });
         List<RoomReservation>roomReservations = new ArrayList<>();
         for (Long id: roomReservationMap.keySet()){
             roomReservations.add(roomReservationMap.get(id));
 
         }
+
         return roomReservations;
     }
 }

@@ -1,9 +1,9 @@
 package com.springboot.hotelbookingsystem.repositories;
 
-import com.springboot.hotelbookingsystem.models.Guest;
+import com.springboot.hotelbookingsystem.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GuestRepository extends CrudRepository<Guest, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 }

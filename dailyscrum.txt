@@ -21,9 +21,9 @@ Lin, Hong
 
 2021-12-10
 Banshchikov, Dmitri
-1. 
-2.  
-3. 
+1. site.js for reservation.html
+2. spring boot security
+3. css styling
 
 
 Lin, Hong

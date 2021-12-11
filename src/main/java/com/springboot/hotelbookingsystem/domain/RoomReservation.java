@@ -9,7 +9,7 @@ import java.util.Date;
 @Setter
 public class RoomReservation {
     private Long roomId;
-    private Long guestId;
+    private Long userId;
     private String roomName;
     private String roomNumber;
     private String firstName;

@@ -8,8 +8,8 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Entity(name = "reservation")
-@Table()
+@Entity
+@Table(name = "reservation")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,8 +19,8 @@ public class Reservation {
     @Column(name = "ROOM_ID", nullable = false)
     private Long roomId;
 
-    @Column(name = "GUEST_ID", nullable = false)
-    private Long guestId;
+    @Column(name = "USER_ID", nullable = false)
+    private Long userId;
 
     @Column(name = "RESERVATION_DATE", nullable = false)
     private Date reservationDate;
