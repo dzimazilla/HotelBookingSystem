@@ -49,7 +49,36 @@ public class ReservationService {
             roomReservations.add(roomReservationMap.get(id));
 
         }
+        //get all the rooms in alphabetical order and then the numbers will sort within those room names
+        roomReservations.sort(new Comparator<RoomReservation>() {
+            @Override
+            public int compare(RoomReservation o1, RoomReservation o2) {
+                if (o1.getRoomName() == o2.getRoomName()) {
+                    return o1.getRoomName().compareTo(o2.getRoomName());
+                }
+                return o1.getRoomName().compareTo(o2.getRoomName());
+            }
+        });
+                return roomReservations;
+    }
 
-        return roomReservations;
+    public List<User> getHotelGuests() {
+        Iterable<User> guests = this.userRepository.findAll();
+        List<User> guestList = new ArrayList<>();
+        guests.forEach(guest -> {
+            guestList.add(guest);
+        });
+        guestList.sort(new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                if (o1.getLastName() == o2.getLastName()) {
+                    return o1.getFirstName().compareTo(o2.getFirstName());
+                }
+                return o1.getLastName().compareTo(o2.getLastName());
+            }
+        });
+        return guestList;
     }
 }
+
+
