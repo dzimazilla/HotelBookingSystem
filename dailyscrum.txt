@@ -30,3 +30,15 @@ Lin, Hong
 1.Doing html of index page . complet to backend of user.add card on trello
 2.Try to complet to backend of user.
 3.Discuss about code conflic by using diffrent way  for backend .
+
+2021-12-12
+Banshchikov, Dmitri
+1. 
+2. 
+3.
+
+
+Lin, Hong
+1.Doing html of home page, completed the login,register page.CSS styling.
+2.Continue to do the other html page of frendend.
+3.Discuss about problem about backend.
