@@ -51,6 +51,6 @@ Banshchikov, Dmitri
 
 
 Lin, Hong
-1.Finish basic Fronden desgin. continue to add and modify them.
-2.Try to fix the password repeast problem.
-3.Discuss about problem about secrity.
+1.Finish basic Frondedn desgin. continue to add and modify them.
+2.Try to fix the password repeast problem.add some backend file of completed.
+3.Discuss about problem about security.
