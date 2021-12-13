@@ -2,17 +2,82 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Spring Boot Hotel | Login</title>
+    <title>Login page</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <link rel="shortcut icon" href="images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+       width: 600px;
+       border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
 </head>
 <body>
-<form th:action="@{/login}" method="post">
-    <div>
-        <label>Username: <input type="text" name="username"/></label>
-        <label>Password: <input type="password" name="password"/></label>
-    </div>
-    <div>
-        <input type="submit" value="Login"/>
-    </div>
-</form>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
+    <div th:include="fragments/components :: errors"></div>
+
+
+
+    <div class="form text-center" >
+    <h2 style="margin-left: 160px ; padding: 15px" >Login</h2>
+
+    <form th:action="@{/login}" th:object="${user}"
+          method="post" style="max-width: 400px; margin: 0 auto;">
+        <div class="m-auto">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">User Name: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{username}" class="form-control" required />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Role: </label>
+                <div class="col-8">
+                <select class="form-control" name="role">
+                    <option value="Client">Client</option>
+                    <option value="Admin">Admin</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Password: </label>
+                <div class="col-8">
+                    <input type="password" th:field="*{password}" class="form-control"
+                           required minlength="6" maxlength="10"/>
+                </div>
+            </div>
+                <br>
+            <div>
+                <button style="margin-left: 160px "type="submit" class="btn btn-primary">Login</button>
+            </div>
+            </div>
+    </form>
+    <p style="margin-left: 120px ; padding: 15px">no account? <a href="/register" class="btn z-depth-0" style="color: red">Register Here!</a></p>
+</div>
+
+
+
+
+    <br><br><br><br><br><br>
+
+
+
+    <div th:include="fragments/components :: footer"></div>
+    <div id="dropDownSelect1"></div>
+
+</div>
 </body>
 </html>
