@@ -33,9 +33,9 @@ Lin, Hong
 
 2021-12-12
 Banshchikov, Dmitri
-1. 
-2. 
-3.
+1. spring boot security (basic)
+2. create docker image
+3. upload project to cloud
 
 
 Lin, Hong

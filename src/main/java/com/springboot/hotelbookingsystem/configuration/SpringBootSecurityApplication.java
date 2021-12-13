@@ -1,12 +1,34 @@
 package com.springboot.hotelbookingsystem.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class }) // Exclude the auto-configuration class (switch off spring security)
-public class SpringBootSecurityApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootSecurityApplication.class, args);
+@Configuration
+@EnableWebSecurity
+public class SpringBootSecurityApplication extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests().antMatchers("/", "/api/*").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .and()
+                .logout().permitAll();
+    }
+
+    @Autowired
+    public void ConfigureGlobal(AuthenticationManagerBuilder auth) throws Exception{
+        auth.inMemoryAuthentication().passwordEncoder(NoOpPasswordEncoder.getInstance())
+                .withUser("user").password("password").roles("USER");
     }
 }
