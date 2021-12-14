@@ -45,12 +45,24 @@ Lin, Hong
 
 2021-12-13
 Banshchikov, Dmitri
-1. 
-2.
-3. 
+1. spring boot security
+2. test of implemented features
+3. stuck with docker image
 
 
 Lin, Hong
 1.Finish basic Frondedn desgin. continue to add and modify them.
 2.Try to fix the password repeast problem.add some backend file of completed.
 3.Discuss about problem about security.
+
+2021-12-13
+Banshchikov, Dmitri
+1. test of implemented features
+2. admin crud
+3. aws or heroku
+
+
+Lin, Hong
+1.
+2.
+3.
