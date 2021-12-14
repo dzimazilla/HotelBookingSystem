@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="images/sunny.jpg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <title>Body | Footer</title>
+</head>
+<body>
+    <div th:fragment="errors">
+        <div th:each="error : ${errors}">
+	        <div th:text="${error.defaultMessage}">
+            </div><br>
+    		</div>
+    </div>
+
+    <footer  th:fragment="footer">
+    <div class="footer-dark">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Online Reserve</a></li>
+                            <li><a href="#">online booking</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Sunny Hotel</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    </div>
+
+                </div>
+                <p class="copyright">Sunny Hotel</p>
+                <div class="container text-center">
+                    <p>&copy; 2021 Best Hotel Group</p>
+                    <img src="https://icon-library.com/images/sunny-icon-png/sunny-icon-png-16.jpg" width="30" height="30">
+                </div>
+                </div></div>
+
+    </footer>
+
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+
+</body>
+</html>
