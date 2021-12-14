@@ -51,7 +51,7 @@ Banshchikov, Dmitri
 
 
 Lin, Hong
-1.Finish basic Frondedn desgin. continue to add and modify them.
+1.Finish basic Frondend desgin. continue to add and modify them.
 2.Try to fix the password repeast problem.add some backend file of completed.
 3.Discuss about problem about security.
 
@@ -63,6 +63,6 @@ Banshchikov, Dmitri
 
 
 Lin, Hong
-1.
-2.
-3.
+1.Finished login and register security part, continue to  add validation.
+2.Finished index,login , register page frondend page. continue to do home page.
+3.Disscuss whth group mate.prepare for midterm check.
