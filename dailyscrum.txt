@@ -17,7 +17,7 @@ Banshchikov, Dmitri
 Lin, Hong
 1. Create basic User.java class,still need to continue add fuctions.
 2.UserController
-3. Reserach work, reivew video and files.
+3. Research work, review video and files.
 
 2021-12-10
 Banshchikov, Dmitri
@@ -27,9 +27,9 @@ Banshchikov, Dmitri
 
 
 Lin, Hong
-1.Doing html of index page . complet to backend of user.add card on trello
-2.Try to complet to backend of user.
-3.Discuss about code conflic by using diffrent way  for backend .
+1.Doing html of index page . complete to backend of user.add card on trello
+2.Try to complete to backend of user.
+3.Discuss code conflict by using different way  for backend .
 
 2021-12-12
 Banshchikov, Dmitri
@@ -40,8 +40,8 @@ Banshchikov, Dmitri
 
 Lin, Hong
 1.Doing html of home page, completed the login,register page.CSS styling.
-2.Continue to do the other html page of frendend.
-3.Discuss about problem about backend.
+2.Continue to do the other html page of frontend.
+3.Discuss problem about backend.
 
 2021-12-13
 Banshchikov, Dmitri
@@ -51,11 +51,11 @@ Banshchikov, Dmitri
 
 
 Lin, Hong
-1.Finish basic Frondend desgin. continue to add and modify them.
-2.Try to fix the password repeast problem.add some backend file of completed.
-3.Discuss about problem about security.
+1.Finish basic Frontend design. continue to add and modify them.
+2.Try to fix the password repast problem. Add some backends file of completed.
+3.Discuss problem about security.
 
-2021-12-13
+2021-12-14
 Banshchikov, Dmitri
 1. test of implemented features
 2. admin crud
@@ -64,5 +64,17 @@ Banshchikov, Dmitri
 
 Lin, Hong
 1.Finished login and register security part, continue to  add validation.
-2.Finished index,login , register page frondend page. continue to do home page.
-3.Disscuss whth group mate.prepare for midterm check.
+2.Finished index,login , register frond-end page. continue to do home page.
+3.Discuss with groupware prepare for midterm check.
+
+2021-12-15
+Banshchikov, Dmitri
+1.
+2.
+3.
+
+
+Lin, Hong
+1.  add validation. continue to complete it. will modify the reserve part.
+2. Continue added html page, design the webpage.
+3.Discuss with team-mate some problems of project and prepare for midterm check.
