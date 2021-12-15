@@ -1,6 +1,6 @@
 package com.springboot.hotelbookingsystem.repositories;
 
-import com.springboot.hotelbookingsystem.models.Room;
+import com.springboot.hotelbookingsystem.entities.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

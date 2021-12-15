@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register page</title>
+    <link rel="stylesheet" type="text/css" href="CSS/reserve.css"/>
+    <link rel="shortcut icon" href="images/sunny.jpg"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .form{
+
+            width: 600px;
+            border-radius: 20px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+
+        }
+
+
+        .card{
+            margin: 20px auto;
+
+        }
+        .container2{
+
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="body" style="background-color: lightblue">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
+    <div th:include="fragments/components :: errors"></div>
+<br>
+<div class="form text-center">
+    <form th:action="@{/checkout}" th:object="${searchRoom}"
+          method="post" style="max-width: 300px; margin: 0 auto;">
+        <input type="hidden" th:field="*{roomid}" class="form-control"/>
+        Checkin:  <input type="text" th:field="*{checkin}" class="form-control" readonly />
+        Checkout:  <input type="text" th:field="*{checkout}" class="form-control" readonly />
+        <br>
+        <button type="submit" class="btn btn-primary">Checkout</button>
+    </form><br>
+</div>
+
+<br>
+    <div class="container2" >
+        <div class="card" style="width:400px">
+            <img class="card-img-top" th:src="@{images/goodview.jpg}" alt="Card image" higstyle="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">Good Review</h4>
+                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+
+            </div>
+        </div>
+        <div class="card" style="width:400px">
+            <img class="card-img-top" th:src="@{images/goodprice.jpg}"  alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">Good Price</h4>
+                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+
+            </div>
+        </div>
+        <div class="card" style="width:400px">
+            <img class="card-img-top" th:src="@{images/bigwindow.jpg}" th:height="400" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">Big Window</h4>
+                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+
+            </div>
+        </div>
+
+        <div class="card" style="width:400px">
+            <img class="card-img-top" th:src="@{images/confortable.jpg}" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">Comfortable</h4>
+                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+
+            </div>
+        </div>
+        <div class="card" style="width:400px">
+            <img class="card-img-top" th:src="@{images/bigbed.jpg}" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">Big Bed</h4>
+                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+
+            </div>
+        </div>
+
+        <div class="card" style="width:400px">
+            <img class="card-img-top" th:src="@{images/justsoso.jpg}" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">Just So So</h4>
+                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div th:include="fragments/components :: footer"></div>
+
+
+
+<div id="dropDownSelect1"></div>
+
+</div>
+</body>
+</html>

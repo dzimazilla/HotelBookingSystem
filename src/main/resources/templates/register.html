@@ -9,11 +9,7 @@
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <style>
-        .body {
-            background-image: url("https://i.pinimg.com/originals/79/1f/79/791f795bd9024704f39a4520dc48a0f3.jpg");
-            background-attachment: scroll;
 
-        }
         .form{
 
             margin: auto 600px;
@@ -33,74 +29,86 @@
     <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
     <div th:include="fragments/components :: errors"></div>
 <br><br><br>
-<div class="form text-center">
-<h2 style="margin-left: 180px">Register </h2><br>
+    <div class="form text-center">
+        <h2 style="margin-left: 180px">Register </h2><br>
 
-<form th:action="@{/register}" th:object="${register}"
-      method="post" style="max-width: 600px; margin: 0 auto;">
-    <div class="m-3">
-        <div class="form-group row">
-            <label class="col-4 col-form-label">User Name: </label>
-            <div class="col-8">
-                <input type="text" th:field="*{username}" class="form-control" required />
-            </div>
-        </div>
+        <form th:action="@{/register}" th:object="${register}"
+              method="post" style="max-width: 600px; margin: 0 auto;">
+            <div class="m-3">
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">User Name: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{username}" class="form-control" required />
+                    </div>
+                </div>
 
-        <div class="form-group row">
-            <label class="col-4 col-form-label">Password: </label>
-            <div class="col-8">
-                <input type="password" th:field="*{password}" class="form-control"
-                       required minlength="6" maxlength="10"/>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Password: </label>
+                    <div class="col-8">
+                        <input type="password" th:field="*{password}" class="form-control"
+                               required minlength="6" maxlength="10"/>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label" for="repeatpassword">Repeat Password</label>
+                    <div class="col-8">
+                        <input type="password"  class="form-control" id="repeatpassword"
+                               required minlength="6" maxlength="10" placeholder="Repeat Password">
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">Email: </label>
+                    <div class="col-8">
+                        <input type="email" th:field="*{email}" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">mobile: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{mobile}" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">address: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{address}" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">city: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{city}" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">province: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{province}" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">postcode: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{postcode}" class="form-control"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-4 col-form-label">country: </label>
+                    <div class="col-8">
+                        <input type="text" th:field="*{country}" class="form-control"/>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 220px">Register</button>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-4 col-form-label">Email: </label>
-            <div class="col-8">
-                <input type="email" th:field="*{email}" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-4 col-form-label">mobile: </label>
-            <div class="col-8">
-                <input type="text" th:field="*{mobile}" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-4 col-form-label">address: </label>
-            <div class="col-8">
-                <input type="text" th:field="*{address}" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-4 col-form-label">city: </label>
-            <div class="col-8">
-                <input type="text" th:field="*{city}" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-4 col-form-label">province: </label>
-            <div class="col-8">
-                <input type="text" th:field="*{province}" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-4 col-form-label">postcode: </label>
-            <div class="col-8">
-                <input type="text" th:field="*{postcode}" class="form-control"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-4 col-form-label">country: </label>
-            <div class="col-8">
-                <input type="text" th:field="*{country}" class="form-control"/>
-            </div>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-primary" style="margin-left: 220px">Register</button>
-        </div>
+        </form>
     </div>
-</form>
-</div>
 <br><br><br><br>
 
 
