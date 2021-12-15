@@ -14,7 +14,7 @@
 
             margin: auto 600px;
             padding: 50px 50px 50px 0px ;
-            border-radius: 20px;
+           
             background-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
             border: 2px solid rgba(255, 255, 255, 0.1);
@@ -27,7 +27,7 @@
 <div class="body">
     <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
     <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
-    <div th:include="fragments/components :: errors"></div>
+
 <br><br><br>
     <div class="form text-center">
         <h2  style="margin-left: 180px">Register </h2><br>
