@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 
 import javax.validation.Valid;
 import java.text.ParseException;
@@ -39,7 +40,7 @@ public class HotelBookingService {
     public HotelBookingService(AddressRepository addressRepository, ReservationRepository reservationRepository,
                                RoleRepository roleRepository, RoomRepository roomRepository, UserRepository userRepository,
                                BCryptPasswordEncoder bCryptPasswordEncoder) {
-        super();
+
         this.addressRepository = addressRepository;
         this.reservationRepository = reservationRepository;
         this.roleRepository = roleRepository;
@@ -68,7 +69,7 @@ public class HotelBookingService {
         try {
             diffInMillies = Math.abs(new SimpleDateFormat("yyyy-MM-dd").parse(searchRoom.getCheckout()).getTime() - new SimpleDateFormat("yyyy-MM-dd").parse(searchRoom.getCheckin()).getTime());
         } catch (ParseException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
@@ -93,7 +94,7 @@ public class HotelBookingService {
             reservation.setCheckin(new SimpleDateFormat("yyyy-MM-dd").parse(order.getCheckin()));
             reservation.setCheckout(new SimpleDateFormat("yyyy-MM-dd").parse(order.getCheckout()));
         } catch (ParseException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
         reservation.setRoom(room);
@@ -111,7 +112,22 @@ public class HotelBookingService {
     }
 
     @Transactional
-    public String registerUser(RegisterModel register) {
+    public String registerUser(@Valid RegisterModel register, BindingResult result,Model model) {
+        User existedUser = userRepository.findByUserName(register.getUsername());
+        if(existedUser!=null) {
+            FieldError usernameErr = new FieldError("register", "username", "user name existed");
+            result.addError(usernameErr);
+        }
+        if(!register.getPassword().equalsIgnoreCase(register.getRepeatpassword())) {
+            FieldError pwErr = new FieldError("register", "password", "password doesn'tmatch");
+            result.addError(pwErr);
+        }
+        if (result.hasErrors()) {
+            model.addAttribute("errors",result.getFieldErrors());
+            model.addAttribute("register",register);
+            return "register";
+        }
+
         User user = new User();
         Address address = new Address();
         address.setAddress(register.getAddress());
@@ -130,6 +146,7 @@ public class HotelBookingService {
         userRepository.save(user);
         return "redirect:/login";
     }
+
 
     @Transactional
     public String showIndexPage(Model model) {
@@ -153,7 +170,7 @@ public class HotelBookingService {
                         return room;
                     }
                 } catch (ParseException e) {
-                    // TODO Auto-generated catch block
+
                     model.addAttribute("errors", "Internal Error");
                     return null;
                 }
