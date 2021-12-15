@@ -3,6 +3,7 @@ package com.springboot.hotelbookingsystem.models;
 public class RegisterModel {
     private String username;
     private String password;
+    private String repeatpassword;
     private String email;
     private String mobile;
     private String address;
@@ -82,4 +83,12 @@ public class RegisterModel {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public String getRepeatpassword() {
+        return repeatpassword;
+    }
+    public void setRepeatpassword(String repeatpassword) {
+        this.repeatpassword = repeatpassword;
+    }
+
 }
