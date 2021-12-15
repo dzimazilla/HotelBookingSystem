@@ -31,7 +31,7 @@ public class Room implements Serializable {
 
     public Room(@NotNull(message = "unit can't be null") String unit, String description, @NotNull double price,
                 Set<Reservation> reservations) {
-        super();
+      
         this.unit = unit;
         this.description = description;
         this.price = price;
