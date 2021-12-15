@@ -29,7 +29,7 @@ public class Address implements Serializable {
     }
 
     public Address(String address, String city, String province, String postcode, String country) {
-        super();
+     
         this.address = address;
         this.city = city;
         this.province = province;
