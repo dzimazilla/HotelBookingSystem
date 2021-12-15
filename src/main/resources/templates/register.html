@@ -30,15 +30,15 @@
     <div th:include="fragments/components :: errors"></div>
 <br><br><br>
     <div class="form text-center">
-        <h2 style="margin-left: 180px">Register </h2><br>
-
-        <form th:action="@{/register}" th:object="${register}"
-              method="post" style="max-width: 600px; margin: 0 auto;">
+        <h2  style="margin-left: 180px">Register </h2><br>
+        <div style="color:red ; font-size: 20px" th:include="fragments/components :: errors"></div>
+        <form  th:action="@{/register}" th:object="${register}"
+               method="post" style="max-width: 600px; margin: 0 auto;">
             <div class="m-3">
                 <div class="form-group row">
                     <label class="col-4 col-form-label">User Name: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{username}" class="form-control" required />
+                        <input type="text" th:field="*{username}" class="form-control" required placeholder="Enter your  name"/>
                     </div>
                 </div>
 
@@ -46,14 +46,14 @@
                     <label class="col-4 col-form-label">Password: </label>
                     <div class="col-8">
                         <input type="password" th:field="*{password}" class="form-control"
-                               required minlength="6" maxlength="10"/>
+                               required minlength="6" maxlength="10" placeholder="Password at least 6-10 letters or numbers"/>
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label" for="repeatpassword">Repeat Password</label>
                     <div class="col-8">
-                        <input type="password"  class="form-control" id="repeatpassword"
+                        <input type="password" th:field="*{repeatpassword}" class="form-control" id="repeatpassword"
                                required minlength="6" maxlength="10" placeholder="Repeat Password">
                     </div>
 
@@ -64,43 +64,43 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Email: </label>
                     <div class="col-8">
-                        <input type="email" th:field="*{email}" class="form-control"/>
+                        <input type="email" th:field="*{email}" class="form-control"placeholder="sample@gmail.com"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">mobile: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{mobile}" class="form-control"/>
+                        <input type="text" th:field="*{mobile}" class="form-control" placeholder="Phone number"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">address: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{address}" class="form-control"/>
+                        <input type="text" th:field="*{address}"class="form-control"  placeholder="Your address"/>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-4 col-form-label">city: </label>
+                    <label class="col-4 col-form-label" >city: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{city}" class="form-control"/>
+                        <input type="text" th:field="*{city}" class="form-control" placeholder="City"/>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-4 col-form-label">province: </label>
+                    <label class="col-4 col-form-label" >province: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{province}" class="form-control"/>
+                        <input type="text" th:field="*{province}" class="form-control" placeholder="Province"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">postcode: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{postcode}" class="form-control"/>
+                        <input type="text" th:field="*{postcode}" class="form-control"placeholder="Post code"/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">country: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{country}" class="form-control"/>
+                        <input type="text" th:field="*{country}" class="form-control"placeholder="Country"/>
                     </div>
                 </div>
                 <div>
