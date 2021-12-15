@@ -11,7 +11,7 @@ public class SearchRoomModel {
     }
 
     public SearchRoomModel(String checkin, String checkout) {
-        super();
+     
         this.checkin = checkin;
         this.checkout = checkout;
     }
