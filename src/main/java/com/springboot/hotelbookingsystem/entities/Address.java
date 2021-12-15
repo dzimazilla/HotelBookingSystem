@@ -25,8 +25,7 @@ public class Address implements Serializable {
 
 
     public Address() {
-        super();
-        // TODO Auto-generated constructor stub
+        
     }
 
     public Address(String address, String city, String province, String postcode, String country) {
