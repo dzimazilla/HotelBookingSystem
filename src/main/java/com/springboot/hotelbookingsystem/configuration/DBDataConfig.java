@@ -20,7 +20,7 @@ public class DBDataConfig {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public DBDataConfig(BCryptPasswordEncoder bCryptPasswordEncoder) {
-        super();
+    
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
