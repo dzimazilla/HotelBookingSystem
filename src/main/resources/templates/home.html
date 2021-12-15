@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <link rel="shortcut icon" href="images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
+    <div th:include="fragments/components :: errors"></div>
+
+
+
+
+    <br><br><br><br><br><br>  <br><br><br><br><br><br>  <br><br><br><br><br><br>  <br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <div th:include="fragments/components :: footer"></div>
+    <div id="dropDownSelect1"></div>
+
+</div>
+</body>
+</html>

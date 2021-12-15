@@ -1,6 +1,6 @@
 package com.springboot.hotelbookingsystem.repositories;
 
-import com.example.hotelbookingsystem.entity.Address;
+import com.springboot.hotelbookingsystem.entities.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
