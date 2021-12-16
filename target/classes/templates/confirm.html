@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm page</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <link rel="shortcut icon" href="images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .form{
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            width: 600px;
+            border-radius: 20px;
+            margin: 150px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
+    <div th:include="fragments/components :: errors"></div>
+
+    <div class="form text-center"  ><br><br>
+        <h1>Confirm</h1>
+<div class="container text-center"style="color: red" >
+
+    Checkin:<div th:text="${order.checkin}"/>
+    Checkout:<div th:text="${order.checkout}"/>
+</div><br><br>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+    <div th:include="fragments/components :: footer"></div>
+<div id="dropDownSelect1"></div>
+</div>
+</body>
+</html>

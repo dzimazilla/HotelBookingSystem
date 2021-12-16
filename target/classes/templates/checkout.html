@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout page</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
+    <link rel="shortcut icon" href="images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .form{
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            width: 600px;
+            border-radius: 20px;
+            margin: 150px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
+    <div th:include="fragments/components :: errors"></div>
+    <br>
+    <div class="form"text-center>
+
+<div class="container text-center" >
+    <h1>Checkout</h1>
+    <h3>Room Detail</h3>
+    Unit:<div th:text="${room.unit}"/><br>
+    description:<div th:text="${room.description}"/><br>
+    unit price:<div th:text="${room.price}"/><br><br>
+
+    <form th:action="@{/placeorder}" th:object="${order}"
+          method="post" style="max-width: 400px; margin: 0 auto;">
+        <input type="hidden" th:field="*{roomId}" class="form-control"/>
+        checkin: <input type="text" th:field="*{checkin}" class="form-control" readonly />
+        checkout:<input type="text" th:field="*{checkout}" class="form-control" readonly />
+        totalPrice:<input type="text" th:field="*{totalPrice}" class="form-control" readonly />
+        <br><br>
+        <button type="submit" class="btn btn-primary">place order</button><br><br>
+
+    </form>
+</div></div><br><br>
+    <div th:include="fragments/components :: footer"></div>
+<div id="dropDownSelect1"></div>
+</div>
+</body>
+</html>

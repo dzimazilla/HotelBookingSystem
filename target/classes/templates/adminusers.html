@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <title>Admin Users page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" href="images/sunny.jpg"/>
+	<link rel="stylesheet" type="text/css" href="/CSS/style.css"/>
+</head>
+<body>
+	<nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+	<nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
+	<div th:include="fragments/components :: errors"></div> 
+
+ 	<div class="container text-center">
+        <h1>User List</h1>
+        <div th:switch="${users}">
+		    <h2 th:case="null">No User yet!</h2>
+		        <div th:case="*">
+		            <h2>Users</h2>
+		            <table>
+		                <thead>
+		                    <tr>
+		                        <th>user name</th>
+		                        <th>email</th>
+		                        <th>mobile</th>
+		                        <th>role</th>
+		                        <th>Edit</th>
+		                        <th>Delete</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                <tr th:each="user : ${users}">
+		                    <td><a th:href="@{/admin/user/{id}(id=${user.id})}" th:text="${user.username}"/></td>
+		                    <td th:text="${user.email}"></td>
+		                    <td th:text="${user.mobile}"></td>
+		                    <td th:text="${user.role.name}"></td>
+		                    <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}">Edit</a></td>
+		                    <td><a th:href="@{/admin/user/delete/{id}(id=${user.id})}">Delete</a></td>
+		                </tr>
+		            </tbody>
+		        </table>
+		    </div>      
+		    <p><a th:href="@{/admin/user/add}" th:text="Add User"/></p>
+		</div>
+  </div>
+
+
+  <div th:include="fragments/components :: footer"></div>
+	<div id="dropDownSelect1"></div>
+</body>
+</html>
