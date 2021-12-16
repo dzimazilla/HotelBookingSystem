@@ -54,6 +54,7 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
