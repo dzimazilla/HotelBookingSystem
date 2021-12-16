@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Room page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 600px;
+        border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center"><br>
+
+			<div th:include="fragments/components :: errors"></div>
+			<h3>Room Information</h3>
+			<form th:action="@{/admin/room/edit}" th:object="${room}"
+      method="post" style="max-width: 400px; margin: 0 auto;">
+        <input type="hidden" th:field="*{id}" class="form-control" required />
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">unit: </label>
+            <div class="col-8">
+                <input readonly type="text" th:field="*{unit}" class="form-control" required />
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Description: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{description}" class="form-control"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Type: </label>
+            <div class="col-8">
+                 <select class="form-control" name="type" id="roomType"  th:field="*{type}" >
+                 <option th:each="type:${roomTypes}" th:value="${type.name}" th:text="${type.name}"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Price: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{price}" class="form-control" required />
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" style="margin-left: 220px">Update Room</button>
+        </div>
+        
+			</form>		
+			<h3>Reservation</h3>
+				<table class="table">
+         <thead>
+             <tr>
+                 <th>Checkin</th>
+                 <th>checkout</th>
+                 <th>room</th>
+                 <th>remark</th>
+                 <th>total</th>
+             </tr>
+         </thead>
+             <tbody>
+                <tr th:each="reservation : ${room.reservations}">
+                    <td th:text="${reservation.checkin}"></td>
+                    <td th:text="${reservation.checkout}"></td>
+                    <td th:text="${reservation.roomunit}"></td>
+                    <td th:text="${reservation.remark}"></td>
+                    <td th:text="${reservation.total}"></td>
+                    <td><a th:href="@{/admin/reservation/view/{id}(id=${reservation.id})}">View</a></td>
+                    <td><a th:href="@{/admin/reservation/edit/{id}(id=${reservation.id})}">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+			
+    </div>
+
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 1000px;
+        border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center"><br>
+			<table class="table">
+
+                <div style="margin-bottom: 15px">   <a th:href="@{/admin/reservation/add}"> Add New Reservation</a></div>
+
+         <thead>
+
+                 <th>Checkin</th>
+                 <th>Checkout</th>
+                 <th>Room unit</th>
+                 <th>User name</th>
+                 <th>Total price</th>
+		   <th>View</th>
+                 <th>Edit</th>
+                 <th>Delete</th>   
+             </tr>
+         </thead>
+             <tbody>
+                <tr th:each="reservation : ${reservations}">
+                    <td th:text="${reservation.checkin}"></td>
+                    <td th:text="${reservation.checkout}"></td>
+                    <td th:text="${reservation.roomunit}"></td>
+                    <td th:text="${reservation.username}"></td>
+ 	                  <td th:text="${reservation.total}"></td>
+  	                 <td><a th:href="@{/admin/reservation/view/{id}(id=${reservation.id})}">View</a></td>
+                    <td><a th:href="@{/admin/reservation/edit/{id}(id=${reservation.id})}">Edit</a></td>
+                    <td><a th:href="@{/admin/reservation/delete/{id}(id=${reservation.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+			
+    </div>
+
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

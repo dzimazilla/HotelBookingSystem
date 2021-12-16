@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Room page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 600px;
+        border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center"><br>
+
+			<h3>Room Information</h3><br>
+			<form th:action="@{/admin/room/add}" th:object="${room}"
+      method="post" style="max-width: 400px; margin: 0 auto;">
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">unit: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{unit}" class="form-control" required />
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Description: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{description}" class="form-control"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Type: </label>
+            <div class="col-8">
+                    <select class="form-control" name="type" id="roomType"  th:field="*{type}" >
+                    <option th:each="type:${roomTypes}" th:value="${type.name}" th:text="${type.name}"/>
+					      </select>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Price: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{price}" class="form-control" required />
+            </div>
+        </div>
+        <div style="margin-left: 160px">
+            <button type="submit" class="btn btn-primary" >Add Room</button>
+        </div>
+			</form><br>
+    </div>
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

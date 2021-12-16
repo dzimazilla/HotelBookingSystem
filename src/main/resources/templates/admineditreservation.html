@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Room page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 600px;
+        border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center"><br>
+
+
+			<h3>Reservation Information</h3><br>
+			<form th:action="@{/admin/reservation/edit}" th:object="${reservation}"
+      method="post" style="max-width: 400px; margin: 0 auto;">
+        <input type="hidden" th:field="*{id}" class="form-control" required />
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Checkin: </label>
+            <div class="col-8">
+                <input type="date" th:field="*{checkin}" class="form-control" required/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Checkout: </label>
+            <div class="col-8">
+                <input type="date" th:field="*{checkout}" class="form-control" required />
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Remark: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{remark}" class="form-control"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Room: </label>
+            <div class="col-8">
+                <input readonly type="text" th:field="*{roomunit}" class="form-control" required />
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">username: </label>
+            <div class="col-8">
+                <input readonly type="text" th:field="*{username}" class="form-control" required />
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">total: </label>
+            <div class="col-8">
+                <input readonly type="text" th:field="*{total}" class="form-control" required />
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary" style="margin-left: 160px">Update Room</button><br>
+        </div>
+        <br>
+			</form>		
+			
+    </div>
+
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

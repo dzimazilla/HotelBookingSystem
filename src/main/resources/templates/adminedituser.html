@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View User page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 600px;
+        border-radius: 20px;
+        margin: 30px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center"><br>
+
+			<div th:include="fragments/components :: errors"></div>
+			<h3>User Information</h3><br>
+			<form th:action="@{/admin/user/edit}" th:object="${user}"
+      method="post" style="max-width: 400px; margin: 0 auto;">
+        <input type="hidden" th:field="*{id}" class="form-control" required />
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">User Name: </label>
+            <div class="col-8">
+                <input readonly type="text" th:field="*{username}" class="form-control" required />
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Email: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{email}" class="form-control" required />
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">mobile: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{mobile}" class="form-control" required />
+            </div>
+        </div>
+					<h3>User Address</h3><br>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">address: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{address}" class="form-control"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">City: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{city}" class="form-control"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Province: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{province}" class="form-control"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Post Code: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{postcode}" class="form-control"/>
+            </div>
+        </div>
+      	<div class="form-group row">
+            <label class="col-4 col-form-label">Country: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{country}" class="form-control"/>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" style="margin-left: 160px">Update User</button>
+        </div><br>
+        
+			</form>
+			<h3>Reservation</h3><br>
+				<table class="table">
+         <thead>
+             <tr>
+                 <th>Checkin</th>
+                 <th>checkout</th>
+                 <th>room</th>
+                 <th>remark</th>
+                 <th>total</th>
+             </tr>
+         </thead>
+             <tbody>
+                <tr th:each="reservation : ${user.reservations}">
+                    <td th:text="${reservation.checkin}"></td>
+                    <td th:text="${reservation.checkout}"></td>
+                    <td th:text="${reservation.roomunit}"></td>
+                    <td th:text="${reservation.remark}"></td>
+                    <td th:text="${reservation.total}"></td>
+                    <td><a th:href="@{/admin/reservation/view/{id}(id=${reservation.id})}">View</a></td>
+                    <td><a th:href="@{/admin/reservation/edit/{id}(id=${reservation.id})}">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+<br><br>
+
+    </div>
+
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 1000px;
+        border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center">
+			<table class="table">
+
+                <br><div style="margin-bottom: 15px">   <a th:href="@{/admin/room/add}">Add New Room</a></div>
+         <thead>
+
+                 <th>Unit</th>
+                 <th>Description</th>
+                 <th>Price</th>
+                 <th>View</th>
+                 <th>Edit</th>
+             </tr>
+         </thead>
+             <tbody>
+                <tr th:each="room : ${rooms}">
+                    <td th:text="${room.unit}"></td>
+                    <td th:text="${room.description}"></td>
+                    <td th:text="${room.price}"></td>
+                    <td><a th:href="@{/admin/room/view/{id}(id=${room.id})}">View</a></td>
+                    <td><a th:href="@{/admin/room/edit/{id}(id=${room.id})}">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+			
+    </div>
+
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

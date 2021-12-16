@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View User page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 1000px;
+        border-radius: 20px;
+        margin: 50px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center"><br>
+
+			<h3>User Information</h3><br>
+			<table class="table">
+          <tbody>
+             <tr><td>User Name</td><td><div th:text="${user.username}"></div></td></tr>
+             <tr><td>Email</td><td><div th:text="${user.email}"></div></td></tr>
+             <tr><td>Mobile</td><td><div th:text="${user.mobile}"></div></td></tr>
+          </tbody>
+      </table>
+			<h3>User Address</h3><br>
+			<table class="table">
+          <tbody>
+             <tr><td>Address</td><td><div th:text="${user.address}"></div></td></tr>
+             <tr><td>Email</td><td><div th:text="${user.city}"></div></td></tr>
+             <tr><td>Province</td><td><div th:text="${user.province}"></div></td></tr>
+             <tr><td>Postcode</td><td><div th:text="${user.postcode}"></div></td></tr>
+             <tr><td>Country</td><td><div th:text="${user.country}"></div></td></tr>
+          </tbody>
+      </table>
+			<h3>Reservation</h3><br>
+				<table class="table">
+         <thead>
+             <tr>
+                 <th>Checkin</th>
+                 <th>Checkout</th>
+                 <th>Room</th>
+                 <th>Remark</th>
+                 <th>Total</th>
+                 <th>View</th>
+                 <th>Edit</th>
+             </tr>
+         </thead>
+             <tbody>
+                <tr th:each="reservation : ${user.reservations}">
+                    <td th:text="${reservation.checkin}"></td>
+                    <td th:text="${reservation.checkout}"></td>
+                    <td th:text="${reservation.roomunit}"></td>
+                    <td th:text="${reservation.remark}"></td>
+                    <td th:text="${reservation.total}"></td>
+                    <td><a th:href="@{/admin/reservation/view/{id}(id=${reservation.id})}">View</a></td>
+                    <td><a th:href="@{/admin/reservation/edit/{id}(id=${reservation.id})}">Edit</a></td>
+                </tr>
+            </tbody>
+        </table><br>
+
+			
+    </div>
+
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

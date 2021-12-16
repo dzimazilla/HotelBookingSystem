@@ -30,7 +30,7 @@
 
     <div class="form text-center" >
     <h2 style="margin-left: 160px ; padding: 15px" >Login</h2>
-        <div style="color:red ; font-size: 20px" th:include="fragments/components :: errors"></div>
+        <div style="color:red ; font-size: 20px" th:text="${error}"/><br>
     <form th:action="@{/login}" th:object="${user}"
           method="post" style="max-width: 400px; margin: 0 auto;">
         <div class="m-auto">
@@ -58,8 +58,8 @@
                 </div>
             </div>
                 <br>
-            <div style="margin-left: 160px " >
-                <button type="submit" class="btn btn-primary">Login</button>
+            <div>
+                <button style="margin-left: 160px "type="submit" class="btn btn-primary">Login</button>
             </div>
             </div>
     </form>

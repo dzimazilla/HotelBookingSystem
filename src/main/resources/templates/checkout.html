@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Checkout page</title>
-    <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
-    <link rel="shortcut icon" href="images/sunny.jpg"/>
+    <title>Register page</title>
+    <link rel="stylesheet" type="text/css" href="CSS/reserve.css"/>
+     <link rel="shortcut icon" href="/images/sunny.jpg"/>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -15,9 +15,9 @@
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-right: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            width: 600px;
+            width: 650px;
             border-radius: 20px;
-            margin: 150px auto;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -27,22 +27,82 @@
     <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
     <div th:include="fragments/components :: errors"></div>
     <br>
-    <div class="form"text-center>
-
-<div class="container text-center" >
+    <div class="form"text-center style="font-size: 18px">
+<div class="container text-center">
     <h1>Checkout</h1>
     <h3>Room Detail</h3>
-    Unit:<div th:text="${room.unit}"/><br>
-    description:<div th:text="${room.description}"/><br>
-    unit price:<div th:text="${room.price}"/><br><br>
-
+    <table class="table">
+	    <tr>
+	      <td>Unit</td>
+	      <td><div th:text="${room.unit}"/></td>
+	    </tr>
+	    <tr>
+	      <td>Description</td>
+	      <td><div th:text="${room.description}"/></td>
+	    </tr>
+	    <tr>
+	      <td>Type</td>
+	      <td><div th:text="${order.roomType}"/></td>
+	    </tr>
+	    
+	    <tr>
+	      <td>Unit price</td>
+	      <td><div th:text="${room.price}"/></td>
+	    </tr>
+    </table>
+    <h3>Reservation Detail</h3>
+    <table class="table">
+	    <tr>
+	      <td>Checkin</td>
+	      <td><div th:text="${order.checkin}"/></td>
+	    </tr>
+	    <tr>
+	      <td>Checkout</td>
+	      <td><div th:text="${order.checkout}"/></td>
+	    </tr>
+	    <tr>
+	      <td>TotalPrice</td>
+	      <td><div th:text="${order.totalPrice}"/></td>
+	    </tr>
+    </table>
+    <h3>Billing Address</h3>
+    <table class="table">
+	    <tr>
+	      <td>Address</td>
+	      <td><div th:text="${order.address}"/></td>
+	    </tr>
+	    <tr>
+	      <td>City</td>
+	      <td><div th:text="${order.city}"/></td>
+	    </tr>
+	    <tr>
+	      <td>Province</td>
+	      <td><div th:text="${order.province}"/></td>
+	    </tr>
+	    <tr>
+	      <td>Postcode</td>
+	      <td><div th:text="${order.postcode}"/></td>
+	    </tr>
+	    <tr>
+	      <td>Country</td>
+	      <td><div th:text="${order.country}"/></td>
+	    </tr>
+    </table>
     <form th:action="@{/placeorder}" th:object="${order}"
           method="post" style="max-width: 400px; margin: 0 auto;">
         <input type="hidden" th:field="*{roomId}" class="form-control"/>
-        checkin: <input type="text" th:field="*{checkin}" class="form-control" readonly />
-        checkout:<input type="text" th:field="*{checkout}" class="form-control" readonly />
-        totalPrice:<input type="text" th:field="*{totalPrice}" class="form-control" readonly />
-        <br><br>
+        <input type="hidden" th:field="*{checkin}" class="form-control" readonly />
+        <input type="hidden" th:field="*{checkout}" class="form-control" readonly />
+        <input type="hidden" th:field="*{totalPrice}" class="form-control" readonly />
+        <div class="input-group mb-3">
+				  <input th:field="*{cardNumber}" type="text" class="form-control" placeholder="Card Number" aria-label="Card Number" required/>
+				</div>
+        <div class="input-group mb-3">
+				  <input th:field="*{expireDate}" type="text" class="form-control" placeholder="Expire Date example:08/23" aria-label="Card Number" required/>
+				</div>
+        <div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder="CVV" aria-label="Card Number" required/>
+				</div>
         <button type="submit" class="btn btn-primary">place order</button><br><br>
 
     </form>

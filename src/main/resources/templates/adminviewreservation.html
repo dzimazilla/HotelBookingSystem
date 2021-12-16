@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Room page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 600px;
+        border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+		<div class="form text-center">
+			<h3>Reservation Information</h3><br>
+			<table class="table">
+          <tbody>
+             <tr><td>Checkin</td><td><div th:text="${reservation.checkin}"></div></td></tr>
+             <tr><td>Checkout</td><td><div th:text="${reservation.checkout}"></div></td></tr>
+             <tr><td>Check Remark</td><td><div th:text="${reservation.remark}"></div></td></tr>
+             <tr><td>Room</td><td><div th:text="${reservation.roomunit}"></div></td></tr>
+             <tr><td>User name</td><td><div th:text="${reservation.username}"></div></td></tr>
+             <tr><td>Total price</td><td><div th:text="${reservation.total}"></div></td></tr>
+          </tbody>
+      </table>
+			
+    </div>
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/reserve.css"/>
+	 <link rel="shortcut icon" href="/images/sunny.jpg"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+    .form{
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 1000px;
+        border-radius: 20px;
+        margin: 150px auto;
+    }
+</style>
+<body>
+<div class="body">
+    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()"  th:replace="fragments/header_user :: header"></nav>
+    <div class="form text-center">
+
+			<table class="table">
+                <br><div style="margin-bottom: 15px"><span class="add">  <a  th:href="@{/admin/user/add}">Add New User</a></span>
+                  <span class="add"style="margin-left: 30px"></span> <a th:href="@{/admin/reservation/add}"> Add New Reservation</a></span></div>
+
+                <thead>
+
+                 <th>User name</th>
+                 <th>Email</th>
+                 <th>Mobile</th>
+                 <th>View</th>
+                 <th>Edit</th>
+             </tr>
+         </thead>
+             <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.mobile}"></td>
+                    <td><a th:href="@{/admin/user/view/{id}(id=${user.id})}">View</a></td>
+                    <td><a th:href="@{/admin/user/edit/{id}(id=${user.id})}">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+		</div><br><br><br>
+    <div th:include="fragments/components :: footer"></div>
+</div>
+</body>
+</html>
