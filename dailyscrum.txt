@@ -78,3 +78,17 @@ Lin, Hong
 1.  add validation. continue to complete it. will modify the reserve part.
 2. Continue added html page, design the webpage.
 3.Discuss with team-mate some problems of project and prepare for midterm check.
+
+2021-12-16
+Banshchikov, Dmitri
+1. 
+2. 
+3.
+
+
+Lin, Hong
+1.Finish almsot all backend and frendend work. still need to fix it and do some Css design
+2.learning aws hosting
+3.Discuss with team-mate about project some proble and will prepare the presentation.
+
+
