@@ -69,9 +69,9 @@ Lin, Hong
 
 2021-12-15
 Banshchikov, Dmitri
-1.
-2.
-3.
+1. admin crud
+2. upload project to heroku
+3. test of implemented features
 
 
 Lin, Hong
