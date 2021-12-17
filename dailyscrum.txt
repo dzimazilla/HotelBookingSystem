@@ -87,8 +87,19 @@ Banshchikov, Dmitri
 
 
 Lin, Hong
-1.Finish almsot all backend and frendend work. still need to fix it and do some Css design
+1.Finish almsot all backend and frentend work. still need to fix it and do some Css design
 2.learning aws hosting
 3.Discuss with team-mate about project some proble and will prepare the presentation.
 
+2021-12-17
+Banshchikov, Dmitri
+1. 
+2.
+3. 
+
+
+Lin, Hong
+1.Almost finish all frentedn and backend work. still need to fix some frontend css.
+2.learning aws hosting make it working. 
+3.Discuss with team-mate about project database setting of hosting and will prepare the presentation.
 
