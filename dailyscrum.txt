@@ -81,9 +81,9 @@ Lin, Hong
 
 2021-12-16
 Banshchikov, Dmitri
-1. 
-2. 
-3.
+1. test of implemented features
+2. heroku database
+3. presentation
 
 
 Lin, Hong
