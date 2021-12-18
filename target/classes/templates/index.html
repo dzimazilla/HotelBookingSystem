@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>Index page</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
-    <link rel="shortcut icon" href="images/sunny.jpg"/>
+     <link rel="shortcut icon" href="/images/sunny.jpg"/>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" href="images/sunny.jpg"/>
 </head>
 <style>
 
@@ -27,17 +26,15 @@
 <div class="body">
     <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
     <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
-    <div th:include="fragments/components :: errors"></div>
-
-
 <div class="form text-center">
 
-    <h3>Choose Date</h3>
+    <h3 style="margin-top: 30px">Choose Date</h3>
+    <div style="color:red ; font-size: 20px" th:include="fragments/components :: errors"></div>
     <form th:action="@{/searchRoom}" th:object="${searchRoom}"
           method="post" style="max-width: 400px; margin: 0 auto;">
         <div class="m-3">
             <div class="form-group row">
-                <label class="col-4 col-form-label">Check in:</label>
+                <label class="col-4 col-form-label">check in:</label>
                 <div class="col-8">
                     <input type="date" th:field="*{checkin}" class="form-control" required />
                 </div>
@@ -48,33 +45,26 @@
                     <input type="date" th:field="*{checkout}" class="form-control" required />
                 </div>
             </div>
-            <div class="form-group row">
+             <div class="form-group row">
                 <label class="col-4 col-form-label">Room Type: </label>
                 <div class="col-8">
-                    <select class="form-control" name="role">
-                        <option value="queen">choose</option>
-                        <option value="king">King</option>
-                        <option value="double">Queen</option>
-                        <option value="double">Double</option>
-                        <option value="triple">Triple</option>
-                    </select>
-                </div>
-            </div>
+                    <select class="form-control" name="role" id="roomType"  th:field="*{roomType}" >
 
+                    <option th:each="type:${roomTypes}" th:value="${type.name}" th:text="${type.name}"/>
+					      </select>
+					    </div>
             <div>
-                <button type="submit" class="btn btn-primary">Search</button>
+
+                <br>
+
+                <button type="submit" class="btn btn-primary" style="margin-left: 220px;margin-bottom: 10px">Search</button>
             </div>
-        </div>
+            </div></div>
     </form>
 </div>
 <br><br><br><br><br><br><br><br><br><br>
 
             <div th:include="fragments/components :: footer"></div>
         </div>
-
-
-
-
-
-></body>
+</body>
 </html>

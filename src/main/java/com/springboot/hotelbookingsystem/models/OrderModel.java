@@ -9,6 +9,14 @@ public class OrderModel {
     private double totalPrice;
     private Long roomId;
     private Long userId;
+    private String address;
+    private String city;
+    private String province;
+    private String postcode;
+    private String country;
+    private String roomunit;
+    private String roomdescription;
+    private String roomType;
 
     public String getCheckin() {
         return checkin;
@@ -72,5 +80,69 @@ public class OrderModel {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getRoomunit() {
+        return roomunit;
+    }
+
+    public void setRoomunit(String roomunit) {
+        this.roomunit = roomunit;
+    }
+
+    public String getRoomdescription() {
+        return roomdescription;
+    }
+
+    public void setRoomdescription(String roomdescription) {
+        this.roomdescription = roomdescription;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
 }

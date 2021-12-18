@@ -16,7 +16,7 @@ public class Role implements Serializable {
     private User user;
 
     public Role(String name) {
-      
+        super();
         this.name = name;
     }
 
@@ -46,4 +46,5 @@ public class Role implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

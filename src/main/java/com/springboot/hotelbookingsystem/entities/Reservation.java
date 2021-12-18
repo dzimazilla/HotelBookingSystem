@@ -31,7 +31,7 @@ public class Reservation implements Serializable {
     }
 
     public Reservation(Date checkin, Date checkout, double total, String remark, User user, Room room) {
-        super();
+
         this.checkin = checkin;
         this.checkout = checkout;
         this.total = total;

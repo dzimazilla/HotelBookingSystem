@@ -87,8 +87,8 @@ public class RegisterModel {
     public String getRepeatpassword() {
         return repeatpassword;
     }
+
     public void setRepeatpassword(String repeatpassword) {
         this.repeatpassword = repeatpassword;
     }
-
 }

@@ -1,13 +1,14 @@
-package com.example.hotelbookingsystem.repository;
+package com.springboot.hotelbookingsystem.repositories;
 
+
+import com.springboot.hotelbookingsystem.entities.RoomType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.example.hotelbookingsystem.entity.User;
-
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    @Query("SELECT u FROM User u WHERE u.username = ?1")
-    public User findByUserName(String username);
+public interface RoomTypeRepository extends JpaRepository<RoomType, Long> {
+
+    @Query("SELECT rt FROM RoomType rt WHERE rt.name = ?1")
+    RoomType findRoomTypeByname(String name);
 }

@@ -23,13 +23,10 @@ public class Address implements Serializable {
     @OneToOne(mappedBy = "address")
     private User user;
 
-
     public Address() {
-        
     }
 
     public Address(String address, String city, String province, String postcode, String country) {
-     
         this.address = address;
         this.city = city;
         this.province = province;

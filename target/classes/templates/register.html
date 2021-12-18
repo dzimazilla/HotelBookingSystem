@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>Register page</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css"/>
-    <link rel="shortcut icon" href="images/sunny.jpg"/>
+     <link rel="shortcut icon" href="/images/sunny.jpg"/>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <style>
 
         .form{
-            margin: auto 600px;
+            width:650px;
+            margin: 50px auto;
             padding: 50px 50px 50px 0px ;
+            border-radius: 20px;
             background-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.01);
             border: 2px solid rgba(255, 255, 255, 0.1);
@@ -23,15 +25,14 @@
 </head>
 <body>
 <div class="body">
-    <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
+  <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
     <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
 
-<br><br><br>
-    <div class="form text-center">
+<div class="form text-center">
         <h2  style="margin-left: 180px">Register </h2><br>
-        <div style="color:red ; font-size: 20px" th:include="fragments/components :: errors"></div>
+    <div style="color:red ; font-size: 20px" th:include="fragments/components :: errors"></div>
         <form  th:action="@{/register}" th:object="${register}"
-               method="post" style="max-width: 600px; margin: 0 auto;">
+              method="post" style="max-width: 600px; margin: 0 auto;">
             <div class="m-3">
                 <div class="form-group row">
                     <label class="col-4 col-form-label">User Name: </label>
@@ -62,13 +63,13 @@
                 <div class="form-group row">
                     <label class="col-4 col-form-label">Email: </label>
                     <div class="col-8">
-                        <input type="email" th:field="*{email}" class="form-control"placeholder="sample@gmail.com"/>
+                        <input type="email" th:field="*{email}" class="form-control"placeholder="sample@gmail.com" required/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-4 col-form-label">mobile: </label>
                     <div class="col-8">
-                        <input type="text" th:field="*{mobile}" class="form-control" placeholder="Phone number"/>
+                        <input type="text" th:field="*{mobile}" class="form-control" placeholder="Phone number" required/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -107,8 +108,6 @@
             </div>
         </form>
     </div>
-<br><br><br><br>
-
 
     <div th:include="fragments/components :: footer"></div>
 </div>

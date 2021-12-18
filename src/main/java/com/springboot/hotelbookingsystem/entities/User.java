@@ -35,11 +35,11 @@ public class User implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
+    private Address address = new Address();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role_id", referencedColumnName = "id")
-    private Role role;
+    private Role role = new Role();
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
@@ -50,7 +50,6 @@ public class User implements Serializable {
                 @NotNull(message = "email can't be null") @Email String email,
                 @NotNull(message = "mobile can't be null") String mobile, Address address, Role role
     ) {
-        super();
         this.username = username;
         this.password = password;
         this.email = email;
@@ -60,6 +59,7 @@ public class User implements Serializable {
     }
 
     public User() {
+
     }
 
     public Long getId() {
@@ -116,5 +116,13 @@ public class User implements Serializable {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }
