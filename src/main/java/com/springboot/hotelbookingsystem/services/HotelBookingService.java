@@ -36,8 +36,8 @@ public class HotelBookingService {
     private final UserRepository userRepository;
     @Autowired
     private final RoomTypeRepository roomTypeRepository;
-   // @Autowired
-   // private JavaMailSender mailSender;
+    @Autowired
+    private JavaMailSender mailSender;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
