@@ -8,6 +8,7 @@ import com.springboot.hotelbookingsystem.utilities.BookingUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,8 +37,9 @@ public class HotelBookingService {
     private final UserRepository userRepository;
     @Autowired
     private final RoomTypeRepository roomTypeRepository;
-    @Autowired
-    private JavaMailSender mailSender;
+    //@Autowired
+    //private JavaMailSender mailSender;
+
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
