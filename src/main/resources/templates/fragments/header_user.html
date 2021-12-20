@@ -26,7 +26,6 @@
                 <li class="nav-item"><a class="nav-link" th:if="${role}=='admin'"th:href="@{/admin/user}">User</a></li>
                 <li class="nav-item"><a class="nav-link" th:if="${role}=='admin'"th:href="@{/admin/room}">Room</a></li>
                 <li class="nav-item"><a class="nav-link" th:if="${role}=='admin'"th:href="@{/admin/reservation}">Reservation</a></li>
-
                 <li class="nav-item" style="color: white"><span class="nav-link" th:text="${#authentication.name}+'&nbsp'" style="color:white;"/>
                 <li class="nav-item"><a class="nav-link"  href="/logout">Logout</a></li>
 

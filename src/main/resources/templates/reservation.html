@@ -12,7 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         .form{
-
             width: 600px;
             border-radius: 20px;
             margin: 50px auto;
@@ -44,7 +43,6 @@
 <div class="body" style="background-color: lightblue">
     <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
     <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
-   
 <br>
 <div class="form text-center">
 		<table class="table">
@@ -63,7 +61,7 @@
 	      <td><div th:text="${searchRoom.checkout}"/></td>
 	    </tr>
 	    <tr>
-	      <td>room type</td>
+	      <td>Room type</td>
 	      <td><div th:text="${searchRoom.roomType}"/></td>
 	    </tr>
     </table>
@@ -77,57 +75,49 @@
         <button type="submit" class="btn btn-primary">Reserve</button>
     </form><br>
 </div>
-
 <br>
     <div class="container2" >
-        <div class="card" style="width:400px ; margin-left: 470px">
+        <div class="card" style="width:400px " >
             <img class="card-img-top" th:src="@{images/goodview.jpg}" alt="Card image" style="width:100%">
             <div class="card-body">
                 <h4 class="card-title">Good Review</h4>
-                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-              
+                <p class="card-text">Queen<br>1 bed<br>Sleep 2 <br>Free Wifi<br></p>
             </div>
         </div>
-        <div class="card" style="width:400px;margin-left: 100px">
+        <div class="card" style="width:400px">
             <img class="card-img-top" th:src="@{images/goodprice.jpg}"  alt="Card image" style="width:100%">
             <div class="card-body">
                 <h4 class="card-title">Good Price</h4>
-                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-               
+                <p class="card-text">Triple<br>3 bed <br>Family room <br>Sleep 4-6 <br>Free Wifi</p>
             </div>
         </div>
-        <div class="card" style="width:400px;margin-left: 470px">
-            <img class="card-img-top" th:src="@{images/bigwindow.jpg}" th:height="400" alt="Card image" style="width:100%">
+        <div class="card" style="width:400px">
+            <img class="card-img-top" th:src="@{images/bigwindow.jpg}" alt="Card image" style="width:100%">
             <div class="card-body">
                 <h4 class="card-title">Big Window</h4>
-                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                
+                <p class="card-text">Double<br>1 bed<br>Sleep 2<br>Free Wifi</p>
             </div>
         </div>
-
-        <div class="card" style="width:400px;margin-left: 100px">
+        <div class="card" style="width:400px">
             <img class="card-img-top" th:src="@{images/confortable.jpg}" alt="Card image" style="width:100%">
             <div class="card-body">
                 <h4 class="card-title">Comfortable</h4>
-                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-               
+                <p class="card-text">Queen<br>1 bed<br>Sleep 2<br>Free Wifi</p>
             </div>
         </div>
-        <div class="card" style="width:400px;margin-left: 470px">
+        <div class="card" style="width:400px ;margin-bottom: 50px">
             <img class="card-img-top" th:src="@{images/bigbed.jpg}" alt="Card image" style="width:100%">
             <div class="card-body">
                 <h4 class="card-title">Big Bed</h4>
-                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                
+                <p class="card-text">King <br>1 bed<br>Sleep 2<br>Free Wifi</p>
             </div>
         </div>
 
-        <div class="card" style="width:400px;margin-left: 100px">
+        <div class="card" style="width:400px;margin-bottom: 50px">
             <img class="card-img-top" th:src="@{images/justsoso.jpg}" alt="Card image" style="width:100%">
             <div class="card-body">
-                <h4 class="card-title">Just So So</h4>
-                <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-               
+                <h4 class="card-title">Just so so</h4>
+                <p class="card-text">Standard<br>1 bed<br>Sleep 2<br>Free Wifi</p>
             </div>
         </div>
     </div>

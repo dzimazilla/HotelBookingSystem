@@ -25,14 +25,14 @@
 <body>
 <div class="body">
     <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
-    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
 		<div class="form text-center"><br>
 
 			<h3>Room Information</h3><br>
 			<form th:action="@{/admin/room/add}" th:object="${room}"
       method="post" style="max-width: 400px; margin: 0 auto;">
       	<div class="form-group row">
-            <label class="col-4 col-form-label">unit: </label>
+            <label class="col-4 col-form-label">Unit: </label>
             <div class="col-8">
                 <input type="text" th:field="*{unit}" class="form-control" required />
             </div>

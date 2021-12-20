@@ -25,7 +25,7 @@
 <body>
 <div class="body">
     <nav class="white z-depth-0" sec:authorize="isAnonymous()" th:replace="fragments/header_guest :: header"></nav>
-    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="/fragments/header_user :: header"></nav>
+    <nav class="white z-depth-0" sec:authorize="isAuthenticated()" th:replace="fragments/header_user :: header"></nav>
 		<div class="form text-center"><br>
 
 			<h3>User Information</h3><br>
