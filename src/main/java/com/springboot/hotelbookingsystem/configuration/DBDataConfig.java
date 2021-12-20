@@ -30,7 +30,7 @@ public class DBDataConfig {
         String password = bCryptPasswordEncoder.encode("123456");
         return args -> {
 
-            RoomType roomType1 = new RoomType("Single");
+            RoomType roomType1 = new RoomType("Standard");
             RoomType roomType2 = new RoomType("Double");
             RoomType roomType3 = new RoomType("Triple");
             RoomType roomType4 = new RoomType("Queen");
