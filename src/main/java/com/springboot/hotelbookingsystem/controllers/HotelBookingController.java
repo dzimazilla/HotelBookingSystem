@@ -91,7 +91,7 @@ public class HotelBookingController {
             long diffInMillies = Math.abs(checkout.getTime() - checkin.getTime());
             long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
             if (checkin.compareTo(new Date()) < 0) {
-                FieldError pwErr = new FieldError("searchRoom", "checkin", "checkin date cannot be before current date");
+                FieldError pwErr = new FieldError("searchRoom", "checkin", "checkin date cannot be tody or before date");
                 result.addError(pwErr);
             }
             if (diff < 1) {
